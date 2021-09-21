@@ -24,7 +24,7 @@ for x1 in np.linspace(0, a, num):
     for x2 in np.linspace(0, a, num):
         for y1 in np.linspace(0, b, num):
             for y2 in np.linspace(0, b, num):
-                Integral += dx1 * dx2 * dy1 * dy2 * d / ((x1 - x2)**2 + (y1 - y2)**2 + d**2)**(3/2)
+                Integral += dx1 * dx2 * dy1 * dy2 * d * ((x1 - x2)**2 + (y1 - y2)**2 + d**2)**(-3/2)
 
 print('\n', Integral)
 
