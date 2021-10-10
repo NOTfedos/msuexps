@@ -6,6 +6,7 @@ from math import sqrt
 import numpy as np
 from scipy.optimize import curve_fit
 
+
 data = pd.read_excel("data1.xlsx")
 
 
@@ -17,6 +18,7 @@ data["n/t"] = nt
 x_arr = unumpy.uarray(y := data["ro"], [0.05*11.34 for el in y])
 
 print(data)
+print("-----------------------------------------")
 
 fig, ax = plt.subplots()
 setup_plot(ax, r"График зависимости скорости $\frac{N}{t}$ счёта частиц от толщины фильтра $x$",
@@ -34,7 +36,7 @@ def f(x, a, b, c):
 
 popt, perr = curve_fit(f, unumpy.nominal_values(x_arr), unumpy.nominal_values(nt))
 print(popt, np.sqrt(np.diag(perr)))
-print(perr)
+# print(perr)
 ax.errorbar(unumpy.nominal_values(x_arr), f(unumpy.nominal_values(x_arr), *popt), linewidth=2)
 
 plt.show()
