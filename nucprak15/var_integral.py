@@ -2,8 +2,8 @@ from uncertainties import ufloat
 from math import log, e
 
 
-I_sp = ufloat(158768, 7400)
-I_a = ufloat(11717161, 11660)
+I_sp = ufloat(36500, 150)
+I_a = ufloat(1918440, 571)
 
 p_sp = I_sp / (I_a + I_sp)
 p_a = I_a / (I_a + I_sp)
