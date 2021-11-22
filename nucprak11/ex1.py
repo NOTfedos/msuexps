@@ -31,10 +31,15 @@ ax.errorbar(unumpy.nominal_values(x_arr),
 
 
 def f(x, a, b, c):
-    return a * np.exp(-x/b) + c
+    return a * np.exp(-x/91.52392769) + c
+
+# b = 91.52392769
+# a = 0.44295009
+# c = 1.65323627
 
 
-popt, perr = curve_fit(f, unumpy.nominal_values(x_arr), unumpy.nominal_values(nt))
+popt, perr = curve_fit(f, unumpy.nominal_values(x_arr), unumpy.nominal_values(nt), p0=[0.08, 90,  0.6],
+                       bounds=[[0, 0, 0], [1, 300, 1]])
 print(popt, np.sqrt(np.diag(perr)))
 # print(perr)
 ax.errorbar(unumpy.nominal_values(x_arr), f(unumpy.nominal_values(x_arr), *popt), linewidth=2)
